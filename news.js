@@ -13,7 +13,7 @@ function getNews(track, callback){
       }
     });
     stream.on(GoogleNews.ERROR, function(error) {
-      console.log(error);  // callback breaks app.js
+      console.log(error);  // callback here breaks app.js
     });
   });
 }
