@@ -71,11 +71,13 @@ hr.star-primary:after {
   margin: 0 auto;
 }
 header {
+
   text-align: center;
-  background: #18BC9C;
+  background: #D2D2D2;
   color: white;
 }
 header .container {
+/*background-image:url(http://imgh.us/banner_69.png);*/
   padding-top: 100px;
   padding-bottom: 50px;
 }
@@ -528,5 +530,18 @@ overflow: visible;
 
 .carousel .item {
 
-  background-color: #11866f;
+  background-color: #D2D2D2;
+}
+.input-group input[type="text"] {
+    position:absolute;
+    left:24%;
+    top:510%;
+    width:60%;
+    background-color:white;
+    color:black;
+}
+.input-group-btn{
+  position:relative;
+  left:10%;
+  top:5%;
 }
