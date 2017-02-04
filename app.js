@@ -4,6 +4,7 @@ var router = express.Router();
 var path = require('path');
 // var dbService = require('/services/dbService');
 var twitter = require('./twitter');
+var wikimedia = require('./wikimedia');
 var dbService=require('./services/dbService');
 
 app.use(express.static(__dirname + '/View'));
@@ -27,6 +28,15 @@ app.get('/twitter/:id', function(req,res){
 	})
 });
 
+app.get('/wiki/:id', function(req,res){
+	wikimedia.getWiki(req.params["id"], function(error, info){
+		if(error){
+			res.sendStatus(500);
+			return;
+		}
+		res.json(info);
+	})
+});
 
 
 app.get('/removeDatabase',function(req,res){

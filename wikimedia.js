@@ -9,3 +9,7 @@ function getWiki(username, callback){
       }
   });
 }
+
+module.exports ={
+	getWiki: getWiki
+}
