@@ -8,7 +8,7 @@ var articles = [];
 function getNews(track, callback){
   googleNews.stream(track, function(stream) {
     stream.on(GoogleNews.DATA, function(data) {
-      if(articles.push(data) > 5){
+      if(articles.push([data]) > 5){ //.title, data.link
         callback(articles);
       }
     });

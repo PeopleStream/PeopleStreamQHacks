@@ -1,13 +1,13 @@
 var index = require("./index.js"),
     DomHandler = index.DomHandler,
-	DomUtils = index.DomUtils;
+    DomUtils = index.DomUtils;
 
 //TODO: make this a streamable handler
 function FeedHandler(callback, options){
 	this.init(callback, options);
 }
 
-require("util").inherits(FeedHandler, DomHandler);
+require("inherits")(FeedHandler, DomHandler);
 
 FeedHandler.prototype.init = DomHandler;
 
@@ -28,14 +28,14 @@ function addConditionally(obj, prop, what, where, recurse){
 	if(tmp) obj[prop] = tmp;
 }
 
-var isValidFeed = function(value) {
+var isValidFeed = function(value){
 	return value === "rss" || value === "feed" || value === "rdf:RDF";
 };
 
-FeedHandler.prototype.onend = function() {
+FeedHandler.prototype.onend = function(){
 	var feed = {},
-		feedRoot = getOneElement(isValidFeed, this.dom),
-		tmp, childs;
+	    feedRoot = getOneElement(isValidFeed, this.dom),
+	    tmp, childs;
 
 	if(feedRoot){
 		if(feedRoot.name === "feed"){
@@ -57,7 +57,7 @@ FeedHandler.prototype.onend = function() {
 				addConditionally(entry, "id", "id", item);
 				addConditionally(entry, "title", "title", item);
 				if((tmp = getOneElement("link", item)) && (tmp = tmp.attribs) && (tmp = tmp.href)) entry.link = tmp;
-				addConditionally(entry, "description", "summary", item);
+				if((tmp = fetch("summary", item) || fetch("content", item))) entry.description = tmp;
 				if((tmp = fetch("updated", item))) entry.pubDate = new Date(tmp);
 				return entry;
 			});
