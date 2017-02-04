@@ -4,7 +4,8 @@
   "description": "An app for finding people.",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "tsc -p src/ -w"
   },
   "repository": {
     "type": "git",
@@ -17,17 +18,42 @@
   },
   "homepage": "https://github.com/PeopleStream/PeopleStreamQHacks#readme",
   "dependencies": {
-    "angular": "^1.6.1",
+    "@angular/core": "^2.4.6",
+    "@angular/platform-browser-dynamic": "^2.4.6",
+    "angular2": "^2.0.0-beta.21",
     "cheerio": "^0.22.0",
+    "es6-shim": "^0.35.3",
     "express": "^4.14.1",
     "fs": "0.0.1-security",
     "google-news": "^1.4.6",
+<<<<<<< HEAD
     "indico.io": "^0.10.5",
     "jsdom": "^9.9.1",
+=======
+    "jsdom": "^9.10.0",
+>>>>>>> d1a939018d4feb4ba72a164bc7350d6730a9d579
     "mongodb": "^2.2.22",
     "mongoose": "^4.8.1",
+    "reflect-metadata": "^0.1.2",
     "request": "^2.79.0",
+    "rxjs": "^5.1.0",
     "twitter": "^1.7.0",
-    "wiki-infobox-parser": "^0.1.11"
+    "typescript": "^2.1.5",
+    "wiki-infobox-parser": "^0.1.11",
+    "zone.js": "^0.7.6",
+    "@angular/common": "~2.4.0",
+    "@angular/compiler": "~2.4.0",
+    "@angular/core": "~2.4.0",
+    "@angular/forms": "~2.4.0",
+    "@angular/http": "~2.4.0",
+    "@angular/platform-browser": "~2.4.0",
+    "@angular/platform-browser-dynamic": "~2.4.0",
+    "@angular/router": "~3.4.0",
+    "angular-in-memory-web-api": "~0.2.4",
+    "systemjs": "0.19.40",
+    "core-js": "^2.4.1",
+    "rxjs": "5.0.1",
+    "zone.js": "^0.7.4"
+
   }
 }

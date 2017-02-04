@@ -1,6 +1,6 @@
 {
   "server": {
-    "baseDir": "src",
+    "baseDir": "startbootstrap-freelancer-gh-pages",
     "routes": {
       "/node_modules": "node_modules"
     }
