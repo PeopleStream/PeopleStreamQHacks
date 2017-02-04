@@ -150,12 +150,12 @@
             </div>
             <div class="row">
                 <div class="col-lg-4 col-lg-offset-2">
-                  <a class="embedly-card" href="http://www.forbes.com/sites/johnnosta/2017/02/03/elon-musk-is-about-to-launch-a-lethal-pathogen-into-space-and-it-might-just-save-your-life/#48418835761f">Elon Musk Is About To Launch A Lethal Pathogen Into Space -- It Might Just Save Your Life</a>
-                  <script async src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script>
-
+                  <ul> <!-- News articles below -->
+                    <li *ngFor="let article of articles">
+                      {{ article }}
+                    </li>
+                  </ul>
                 </div>
-
-
             </div>
         </div>
     </section>
