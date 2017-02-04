@@ -504,6 +504,11 @@ fieldset[disabled] .btn-success.active {
   display: none;
 }
 
+.carousel-control {
+  padding-top:10%;
+  width:5%;
+}
+
 .carousel-inner{
 overflow: visible;
 }

@@ -19,7 +19,7 @@
     });
 
     // Closes the Responsive Menu on Menu Item Click
-    $('.navbar-collapse ul li a').click(function(){ 
+    $('.navbar-collapse ul li a').click(function(){
             $('.navbar-toggle:visible').click();
     });
 
@@ -29,6 +29,20 @@
             top: 100
         }
     })
+
+    $(document).ready(function() {
+	$('#myCarousel').carousel({
+	interval: 1
+	})
+
+    $('#myCarousel').on('slid.bs.carousel', function() {
+    	//alert("slid");
+	});
+
+
+});
+
+
 
     // Floating label headings for the contact form
     $(function() {
