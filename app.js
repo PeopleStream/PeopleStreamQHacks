@@ -8,7 +8,7 @@ var twitter = require('./twitter');
 var wikimedia = require('./wikimedia');
 var dbService=require('./services/dbService');
 
-app.use(express.static(__dirname + '/View'));
+app.use(express.static(__dirname + '/startbootstrap-freelancer-gh-pages'));  // was /View
 app.use(express.static(__dirname + '/Script'));
 
 
