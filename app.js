@@ -11,16 +11,50 @@ var cheerio = require('cheerio');
 var fs = require('fs');
 var request = require('request');
 var jsdom = require('jsdom');
+var indico = require('indico.io');
+var indicoModel = require('./indicoModel');
+
 
 app.use(express.static(__dirname + '/startbootstrap-freelancer-gh-pages'));  // was /View
 app.use(express.static(__dirname + '/Script'));
-app.use(express.static(__dirname + '/node_modules'));
-app.use(express.static(__dirname + '/src'));
-app.use("/node_modules", express.static(__dirname + '/node_modules'));
+
+indico.apiKey = 'a2f9702ecc22dde6549a72760cbf13f4';
+
 
 app.get('/',function(req,res){
 	res.sendFile(path.join('index.html'));
 });
+
+app.get('/indico',function(req,res){
+
+
+
+
+
+var logError = function(err) { console.log(err); }
+
+// single example
+indico.political("I have a constitutional right to bear arms!")
+  .then(function(data){
+
+  	return res.json(data);
+
+
+  })
+  .catch(logError);
+
+
+
+
+
+});
+
+
+
+
+ 
+
+
 
 
 
@@ -68,7 +102,7 @@ url = 'https://twitter.com/' + String(req.params["id"]);
 
 request(url, function (error, response, html) {
   if (!error && response.statusCode == 200) {
-
+    
     jsdom.env(html,
   ["http://code.jquery.com/jquery.js"],
   function (err, window) {
@@ -81,9 +115,12 @@ request(url, function (error, response, html) {
 // Finally, we'll just send out a message to the browser reminding you that this app does not have a UI.
 res.send('Check your console!')
 
-
+    
 
 });
+
+
+
 
 app.get('/removeDatabase',function(req,res){
 
