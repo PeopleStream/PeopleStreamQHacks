@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'my-app',
-  template: `<h1>Hello {{name}}</h1>`,
+  template: `<li *ngFor="let article of articles">
+        {{ article }}
+      </li>`,
 })
-export class AppComponent  { name = 'Angular'; }
+export class AppComponent  { articles = ['Windstorm', 'Bombasto', 'Magneta', 'Tornado'];}

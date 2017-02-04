@@ -1,8 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<!-- <html ng-app='Angular'> -->
 <head>
-    <script src="/node_modules/angular/angular.js"></script>
+    <base href="/">
+    <!-- <script src="node_modules/angular/angular.js"></script> -->
+    <script src="core-js/client/shim.min.js"></script>
+
+    <script src="zone.js/dist/zone.js"></script>
+    <script src="systemjs/dist/system.src.js"></script>
+
+    <script src="systemjs.config.js"></script>
+    <script>
+      System.import('main.js').catch(function(err){ console.error(err); });
+    </script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -150,10 +160,8 @@
             </div>
             <div class="row">
                 <div class="col-lg-4 col-lg-offset-2">
-                  <ul> <!-- News articles below -->
-                    <li *ngFor="let article of articles">
-                      {{ article }}
-                    </li>
+                  <ul>
+                    <my-app>loading...</my-app>
                   </ul>
                 </div>
             </div>
