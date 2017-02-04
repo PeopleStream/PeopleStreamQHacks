@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/PeopleStream/PeopleStreamQHacks#readme",
   "dependencies": {
+    "angular": "^1.6.1",
     "express": "^4.14.1",
     "google-news": "^1.4.6",
     "mongodb": "^2.2.22",
