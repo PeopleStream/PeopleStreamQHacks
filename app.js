@@ -22,8 +22,7 @@ app.get('/',function(req,res){
 app.get('/twitter/:id', function(req,res){
 	twitter.getTweets(req.params["id"], function(error, tweets){
 		if(error){
-			res.sendStatus(500);
-			return;
+			return res.sendStatus(500);
 		}
 		res.json(tweets);
 	})
@@ -32,18 +31,16 @@ app.get('/twitter/:id', function(req,res){
 app.get('/wiki/:id', function(req,res){
 	wikimedia.getWiki(req.params["id"], function(error, info){
 		if(error){
-			res.sendStatus(500);
-			return;
+			return res.sendStatus(500);
 		}
 		res.json(info);
 	})
 });
 
 app.get('/news/:id', function(req,res){
-	news.getNews(req.params["id"], function(error, info){
-		if(error){
-			res.sendStatus(500);
-			return;
+	news.getNews(req.params["id"], function(info){
+		if(!info){
+			return res.sendStatus(500);
 		}
 		res.json(info);
 	})

@@ -3,14 +3,17 @@ var GoogleNews, googleNews, track;
 
 GoogleNews = require('google-news');
 googleNews = new GoogleNews();
+var articles = [];
 
 function getNews(track, callback){
   googleNews.stream(track, function(stream) {
     stream.on(GoogleNews.DATA, function(data) {
-      callback(null, data.title);
+      if(articles.push(data) > 5){
+        callback(articles);
+      }
     });
     stream.on(GoogleNews.ERROR, function(error) {
-      callback(error, null);
+      console.log(error);  // callback breaks app.js
     });
   });
 }
