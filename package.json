@@ -1,0 +1,22 @@
+{
+  "name": "peoplestreamqhacks",
+  "version": "1.0.0",
+  "description": "An app for finding people.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PeopleStream/PeopleStreamQHacks.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PeopleStream/PeopleStreamQHacks/issues"
+  },
+  "homepage": "https://github.com/PeopleStream/PeopleStreamQHacks#readme",
+  "dependencies": {
+    "express": "^4.14.1"
+  }
+}
