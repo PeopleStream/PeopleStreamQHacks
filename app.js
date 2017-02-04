@@ -3,6 +3,7 @@ var app = express();
 var router = express.Router();
 var path = require('path');
 // var dbService = require('/services/dbService');
+var news = require('./news');
 var twitter = require('./twitter');
 var wikimedia = require('./wikimedia');
 var dbService=require('./services/dbService');
@@ -38,6 +39,15 @@ app.get('/wiki/:id', function(req,res){
 	})
 });
 
+app.get('/news/:id', function(req,res){
+	news.getNews(req.params["id"], function(error, info){
+		if(error){
+			res.sendStatus(500);
+			return;
+		}
+		res.json(info);
+	})
+});
 
 app.get('/removeDatabase',function(req,res){
 

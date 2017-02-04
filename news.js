@@ -14,3 +14,7 @@ function getNews(track, callback){
     });
   });
 }
+
+module.exports ={
+	getNews: getNews
+}
