@@ -23,6 +23,23 @@ function getTweets(username, callback){
 
 }
 
+function getBio(username, callback){
+  var params = {screen_name: username}; // will be passed from user's query
+  client.get('users/show', params, function(error, bio) {
+    if (!error) {
+      
+      callback(null, bio)
+    }
+    else{
+      callback(error, null)
+      
+    }
+  });
+ 
+  
+}
+
 module.exports = {
-  getTweets: getTweets
+  getTweets: getTweets,
+  getBio: getBio
 }
