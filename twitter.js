@@ -11,12 +11,15 @@ function getTweets(username, callback){
   var params = {screen_name: username}; // will be passed from user's query
   client.get('statuses/user_timeline', params, function(error, tweets, response) {
     if (!error) {
-      callback(tweets)
+      callback(null, tweets)
     }
-    callback(error)
+    else{
+      callback(error, null)
+    }
   });
+  callback();
 }
 
 module.exports = {
-  getTweets: getTweets;
+  getTweets: getTweets
 }
