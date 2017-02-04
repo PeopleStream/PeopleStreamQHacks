@@ -22,6 +22,7 @@
     "express": "^4.14.1",
     "fs": "0.0.1-security",
     "google-news": "^1.4.6",
+    "jsdom": "^9.9.1",
     "mongodb": "^2.2.22",
     "mongoose": "^4.8.1",
     "request": "^2.79.0",

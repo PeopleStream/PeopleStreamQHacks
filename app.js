@@ -7,6 +7,11 @@ var news = require('./news');
 var twitter = require('./twitter');
 var wikimedia = require('./wikimedia');
 var dbService=require('./services/dbService');
+var cheerio = require('cheerio');
+var fs= require('fs');
+var request = require('request');
+var jsdom = require('jsdom');
+
 
 app.use(express.static(__dirname + '/startbootstrap-freelancer-gh-pages'));  // was /View
 app.use(express.static(__dirname + '/Script'));
@@ -55,6 +60,31 @@ app.get('/news/:id', function(req,res){
 		}
 		res.json(info);
 	})
+});
+
+app.get('/scrape/:id',function(req,res){
+
+url = 'https://twitter.com/' + String(req.params["id"]);
+
+
+
+request(url, function (error, response, html) {
+  if (!error && response.statusCode == 200) {
+    
+    jsdom.env(html,
+  ["http://code.jquery.com/jquery.js"],
+  function (err, window) {
+    console.log("contents of a.the-link:", window.$(".ProfileAvatar-image").attr('src'));
+  }
+);
+  }
+});
+
+// Finally, we'll just send out a message to the browser reminding you that this app does not have a UI.
+res.send('Check your console!')
+
+    
+
 });
 
 app.get('/removeDatabase',function(req,res){
