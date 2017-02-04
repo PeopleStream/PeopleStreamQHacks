@@ -7,9 +7,16 @@ var client = new Twitter({
   access_token_secret: 'bGbOGrtvTUicjyTBD8z6s1j3cHVL2TvNCMbkrHFnmwH0d'
 });
 
-var params = {screen_name: 'POTUS'}; // will be passed from user's query
-client.get('statuses/user_timeline', params, function(error, tweets, response) {
-  if (!error) {
-    console.log(tweets);
-  }
-});
+function getTweets(username, callback){
+  var params = {screen_name: username}; // will be passed from user's query
+  client.get('statuses/user_timeline', params, function(error, tweets, response) {
+    if (!error) {
+      callback(tweets)
+    }
+    callback(error)
+  });
+}
+
+module.exports = {
+  getTweets: getTweets;
+}
