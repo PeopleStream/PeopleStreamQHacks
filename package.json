@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/PeopleStream/PeopleStreamQHacks#readme",
   "dependencies": {
-    "express": "^4.14.1"
+    "express": "^4.14.1",
+    "twitter": "^1.7.0"
   }
 }
