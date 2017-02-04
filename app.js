@@ -17,8 +17,8 @@ app.get('/',function(req,res){
 
 
 
-app.get('/twitter', function(req,res){
-	twitter.getTweets('POTUS', function(error, tweets){
+app.get('/twitter/:id', function(req,res){
+	twitter.getTweets(req.params["id"], function(error, tweets){
 		if(error){
 			res.sendStatus(500);
 			return;

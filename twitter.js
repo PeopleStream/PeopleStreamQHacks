@@ -11,7 +11,7 @@ function getTweets(username, callback){
   var params = {screen_name: username}; // will be passed from user's query
   client.get('statuses/user_timeline', params, function(error, tweets) {
     if (!error) {
-      console.log("We are number one");
+      
       callback(null, tweets)
     }
     else{
@@ -19,7 +19,7 @@ function getTweets(username, callback){
       
     }
   });
-  console.log("So you want to be a villain number one");
+ 
   
 }
 
