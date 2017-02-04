@@ -8,7 +8,7 @@ var twitter = require('./twitter');
 var wikimedia = require('./wikimedia');
 var dbService=require('./services/dbService');
 var cheerio = require('cheerio');
-var fs= require('fs');
+var fs = require('fs');
 var request = require('request');
 var jsdom = require('jsdom');
 
@@ -42,20 +42,18 @@ app.get('/twitterBio/:id', function(req,res){
 	})
 });
 
-
-
-app.get('/wiki/:id', function(req,res){
-	wikimedia.getWiki(req.params["id"], function(error, info){
-		if(error){
+app.get('/news/:id', function(req,res){
+	news.getNews(req.params["id"], function(info){
+		if(!info){
 			return res.sendStatus(500);
 		}
 		res.json(info);
 	})
 });
 
-app.get('/news/:id', function(req,res){
-	news.getNews(req.params["id"], function(info){
-		if(!info){
+app.get('/wiki/:id', function(req,res){
+	wikimedia.getWiki(req.params["id"], function(error, info){
+		if(error){
 			return res.sendStatus(500);
 		}
 		res.json(info);
