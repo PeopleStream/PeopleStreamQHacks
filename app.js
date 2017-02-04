@@ -24,9 +24,20 @@ app.get('/twitter/:id', function(req,res){
 		if(error){
 			return res.sendStatus(500);
 		}
-		res.json(tweets);
+		res.json(tweets[0]['text']);
 	})
 });
+
+app.get('/twitterBio/:id', function(req,res){
+	twitter.getBio(req.params["id"], function(error, bio){
+		if(error){
+			return res.sendStatus(500);
+		}
+		res.json(bio['description']);
+	})
+});
+
+
 
 app.get('/wiki/:id', function(req,res){
 	wikimedia.getWiki(req.params["id"], function(error, info){
