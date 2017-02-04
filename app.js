@@ -12,7 +12,7 @@ var fs = require('fs');
 var request = require('request');
 var jsdom = require('jsdom');
 var indico = require('indico.io');
-var indicoModel = require('./indicoModel');
+
 
 
 app.use(express.static(__dirname + '/startbootstrap-freelancer-gh-pages'));  // was /View
