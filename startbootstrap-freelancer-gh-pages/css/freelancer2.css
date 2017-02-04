@@ -85,7 +85,7 @@ header .intro-text .name {
   display: block;
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
-  font-weight: 700;
+  font-weight: 250;
   font-size: 2em;
 }
 header .intro-text .skills {
@@ -94,11 +94,11 @@ header .intro-text .skills {
 }
 @media (min-width: 768px) {
   header .container {
-    padding-top: 100px;
+    padding-top: 150px;
     padding-bottom: 5px;
   }
   header .intro-text .name {
-    font-size: 4.75em;
+    font-size: 3em;
   }
   header .intro-text .skills {
     font-size: 1.75em;

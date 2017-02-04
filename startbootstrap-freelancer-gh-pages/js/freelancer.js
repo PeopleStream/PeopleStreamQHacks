@@ -32,7 +32,7 @@
 
     $(document).ready(function() {
 	$('#myCarousel').carousel({
-	interval: 1
+	interval: 5000
 	})
 
     $('#myCarousel').on('slid.bs.carousel', function() {
