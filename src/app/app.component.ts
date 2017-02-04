@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
-export class AppComponent {
-  articles = ['Windstorm', 'Bombasto', 'Magneta', 'Tornado'];
-}
+@Component({
+  selector: 'my-app',
+  template: `<h1>Hello {{name}}</h1>`,
+})
+export class AppComponent  { name = 'Angular'; }
