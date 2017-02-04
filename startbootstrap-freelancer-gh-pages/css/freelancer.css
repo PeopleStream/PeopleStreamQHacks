@@ -503,3 +503,14 @@ fieldset[disabled] .btn-success.active {
   opacity: 0;
   display: none;
 }
+
+.carousel-inner{
+overflow: visible;
+}
+.carousel-caption {
+    position: relative;
+    left: auto;
+    right: auto;
+    padding-top: 0px;
+    padding-bottom: 20px;
+}
