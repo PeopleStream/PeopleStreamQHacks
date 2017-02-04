@@ -1,7 +1,7 @@
 var wikiParser = require('wiki-infobox-parser');
 
-function getWiki(username, callback){
-  wikiParser(username, function(err, result) {
+function getWiki(name, callback){
+  wikiParser(name, function(err, result) {
     if (err) {
           callback(err, null)
       } else {
