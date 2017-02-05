@@ -30,9 +30,6 @@ indico.apiKey = 'a2f9702ecc22dde6549a72760cbf13f4';
 app.get('/indico',function(req,res){
 
 
-
-
-
 var logError = function(err) { console.log(err); }
 
 // single example
@@ -94,6 +91,9 @@ app.get('/scrape/:id',function(req,res){
 
 url = 'https://twitter.com/' + String(req.params["id"]);
 
+app.all('*', function(req, res) {
+	res.sendFile(path.join('profile.html'));
+});
 
 
 request(url, function (error, response, html) {
