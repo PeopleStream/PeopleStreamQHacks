@@ -54,17 +54,17 @@ hr.star-primary:after {
   padding: 0 0.25em;
 }
 hr.star-light {
-  border-color: white;
+  border-color: #2C3E50;
 }
 hr.star-light:after {
-  background-color: #18BC9C;
+  background-color: white;
   color: white;
 }
 hr.star-primary {
-  border-color: #2C3E50;
+  border-color: white;
 }
 hr.star-primary:after {
-  background-color: white;
+  background-color: #18BC9C;
   color: #2C3E50;
 }
 .img-centered {
