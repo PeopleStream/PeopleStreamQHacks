@@ -31,7 +31,8 @@ h6 {
   text-transform: uppercase;
   font-weight: 700;
 }
-h3{
+h3,
+h2{
   color: black;
 }
 hr.star-light,
@@ -184,7 +185,7 @@ header .intro-text .skills {
   }
 }
 section {
-  padding: 100px 0;
+  padding: 75px 0;
 }
 section h2 {
   margin: 0;
@@ -199,7 +200,7 @@ section.success {
     padding: 75px 0;
   }
   section.first {
-    padding-top: 75px;
+    padding-top: 0px;
   }
 }
 #portfolio .portfolio-item {
