@@ -13,13 +13,18 @@ var request = require('request');
 var jsdom = require('jsdom');
 
 app.use(express.static(__dirname + '/startbootstrap-freelancer-gh-pages'));  // was /View
-app.use(express.static(__dirname + '/Script'));
-app.use(express.static(__dirname + '/node_modules'));
-app.use(express.static(__dirname + '/src'));
-app.use("/node_modules", express.static(__dirname + '/node_modules'));
+// app.use(express.static(__dirname + '/Script'));
+// app.use(express.static(__dirname + '/node_modules'));
+// app.use(express.static(__dirname + '/src'));
+// app.use("/node_modules", express.static(__dirname + '/node_modules'));
+//
+var engines = require('consolidate');
+app.set('views', __dirname + '/startbootstrap-freelancer-gh-pages');
+app.engine('html', engines.mustache);
+app.set('view engine', 'html');
 
 app.get('/',function(req,res){
-	res.sendFile(path.join('index.html'));
+	res.render('index.html');
 });
 
 var indico = require('indico.io');
@@ -28,9 +33,6 @@ indico.apiKey = 'a2f9702ecc22dde6549a72760cbf13f4';
 
 
 app.get('/indico',function(req,res){
-
-
-
 
 
 var logError = function(err) { console.log(err); }
@@ -94,8 +96,6 @@ app.get('/scrape/:id',function(req,res){
 
 url = 'https://twitter.com/' + String(req.params["id"]);
 
-
-
 request(url, function (error, response, html) {
   if (!error && response.statusCode == 200) {
 
@@ -137,6 +137,11 @@ app.get('/populate',function(req, res){
 	res.json({status: "Populated the db"});
 
 });
+
+app.get('*', function(req, res) {
+	res.render('profile.html');
+});
+
 
 app.listen(3000,function(){
 	console.log('Example app listening on port 3000')

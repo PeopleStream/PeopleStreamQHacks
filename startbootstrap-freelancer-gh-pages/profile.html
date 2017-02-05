@@ -2,17 +2,16 @@
 <html lang="en">
 <!-- <html ng-app='Angular'> -->
 <head>
-    <base href="/">
     <!-- <script src="node_modules/angular/angular.js"></script> -->
-    <script src="core-js/client/shim.min.js"></script>
+    <!-- <script src="core-js/client/shim.min.js"></script> -->
 
-    <script src="zone.js/dist/zone.js"></script>
-    <script src="systemjs/dist/system.src.js"></script>
-
-    <script src="systemjs.config.js"></script>
-    <script>
+    <!-- <script src="zone.js/dist/zone.js"></script> -->
+    <!-- <script src="systemjs/dist/system.src.js"></script> -->
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <!-- <script src="systemjs.config.js"></script> -->
+    <!-- <script>
       System.import('main.js').catch(function(err){ console.error(err); });
-    </script>
+    </script> -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -32,12 +31,17 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <script>
+      var pathname = window.location.pathname;
+      var name = pathname.split("/")[pathname.split("/").length - 1].replace(".html","");
+      var psAPI = location.host;
+      console.log($.fn.jquery);
+      var ting = $.getJSON(psAPI + '/twitterBio/' + name).done(function(data){
+        console.log('hey');
+        $("#skills").text() = $.parseJSON(data);
+      });
+      console.log(ting)
+    </script>
 
 </head>
 
@@ -86,7 +90,7 @@
                     <div class="intro-text">
                         <span class="name">ELON MUSK</span>
                         <hr class="star-light">
-                        <span class="skills">Tesla, SpaceX, Tunnels
+                        <span id="skills">Tesla, SpaceX, Tunnels
                         </span>
                     </div>
                 </div>

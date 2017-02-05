@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+    <script src="https://code/jquery.com/jquery-1.10.2.js"></script>
 
     <!-- Favicon -->
       <link rel="shortcut icon" href="favicona.ico" type="image/x-icon">
@@ -32,7 +33,11 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
+    <script type="text/javascript">
+        function changeLink(){
+          document.getElementById('queryForm').action = document.getElementById('query').value.replace(/ /g,"-"); /*.replace(/[.,-\/#!$%\^&\*;:{}=\-_`~()]/g,"").replace(/\s{2,}/g," ");*/
+        }
+    </script>
 </head>
 
 <body id="page-top" class="index">
@@ -83,12 +88,12 @@
 
 
 <!--Search Bar-->
-           <div class="input-group">
-                  <input type="text" class="form-control" placeholder="Search for a thought leader">
-              <div class="input-group-btn">
-                  <button class="btn btn-default" type="submit">GO  <i class="glyphicon glyphicon-search"></i></button>
+           <form id="queryForm" class="input-group">
+              <input id="query" oninput="changeLink()" type="text" class="form-control" placeholder="Search for a thought leader">
+               <div class="input-group-btn">
+                 <button class="btn btn-default" type="submit">GO  <i class="glyphicon glyphicon-search"></i></button>
               </div>
-            </div>
+            </form>
               <!--Carousel-->
 
 
