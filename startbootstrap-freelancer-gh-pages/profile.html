@@ -38,16 +38,24 @@
 
     <script>
       var pathname = window.location.pathname;
-      var name = pathname.split("/")[pathname.split("/").length - 1].replace(".html","");
+      var name = pathname.split("/")[pathname.split("/").length - 1].replace(".html","").replace("%20", " ");
       var psAPI = window.location.host;
 
+      function handle(callback){
+        $.getJSON('//' + psAPI + '/getTwitterNameFromName/' + name, function(data){
+          callback(data.Twitter.substring(1));
+        });
+      }
+
+      handle(function(data){
       // Twitter Bio
-      $.getJSON('//' + psAPI + '/twitterBio/' + name, function(data){
+      var handle = data;
+      $.getJSON('//' + psAPI + '/twitterBio/' + handle, function(data){
         $("#skills").text(data.description);
       });
 
       // Tweets
-      $.getJSON('//' + psAPI + '/twitter/' + name, function(data){
+      $.getJSON('//' + psAPI + '/twitter/' + handle, function(data){
         for(var a=0; a<4; a++){
           $(".tweetcontent:eq(" + a + ")").text(data[a].text)
         }
@@ -55,8 +63,8 @@
 
       // Profile image
       var imageSrc = "";
-      $.getJSON('//' + psAPI + '/scrape/' + name, function(data){
-        $('.twimg').attr("src",data.image);
+      $.getJSON('//' + psAPI + '/scrape/' + handle, function(data){
+        $('.twimg').attr("src", data.image);
       });
 
       // News articles
@@ -66,9 +74,11 @@
         }
       });
 
+      $("#name").text(name);
+
       // Wikipedia infobox
       var banned = ['signature', 'birth date', 'spouse', 'children', 'parents', 'relatives', 'caption'];
-      $.getJSON('//' + psAPI + '/wiki/' + "Elon Musk", function(data){
+      $.getJSON('//' + psAPI + '/wiki/' + name, function(data){
         var result = $.parseJSON(data);
         $.each(result, function(k, v) {
           k = cap(k.replaceAll("_", " "));
@@ -76,7 +86,6 @@
           vl = v.toLowerCase();
           if(!(banned.indexOf(kl) > -1) && !(vl.indexOf('.jpg') > -1) && !(vl.indexOf('.png') > -1) && !(vl.indexOf('.jpeg') > -1) && !(kl.indexOf('alt') > -1) && !(kl.indexOf('birth') > -1)){
             $("#infobox").append("<tr><th>"+k+"</th><td>" + v + "</td></tr>");
-            console.log(kl);
           }
         })});
 
@@ -90,6 +99,7 @@
       function cap(str){
         return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
       }
+    });
     </script>
 </head>
 
@@ -136,9 +146,10 @@
                 <div class="col-lg-12">
                     <img src="https://thebenclark.files.wordpress.com/2014/03/facebook-default-no-profile-pic.jpg" class="twimg img-circle" style="width:230px;height:230px;"alt="..">
                     <div class="intro-text">
-                        <span class="name"></span>
+                        <span id="name" class="name"></span>
                         <hr class="star-light">
                         <span id="skills">
+                          &nbsp;
                         </span>
                     </div>
                 </div>

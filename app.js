@@ -42,19 +42,18 @@ indico.political("I have a constitutional right to bear arms!")
   .then(function(data){
 
   	return res.json(data);
-
-
   })
   .catch(logError);
-
-
-
-
-
 });
 
 
-
+app.get('/getTwitterNameFromName/:id', function(req,res){
+	dbService.getTwitterName(req.params["id"],function(err,twittername){
+		if (err){
+			return res.sendStatus(500);
+		}
+		res.json(twittername);
+	});})
 
 app.get('/twitter/:id', function(req,res){
 	twitter.getTweets(req.params["id"], function(error, tweets){
@@ -122,10 +121,8 @@ dbService.removeAllListings(function(err){
 });
 
 app.get('/populate',function(req, res){
-
 	dbService.populateDatabase();
 	res.json({status: "Populated the db"});
-
 });
 
 app.get('*', function(req, res) {
