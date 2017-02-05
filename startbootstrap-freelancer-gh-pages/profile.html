@@ -38,9 +38,9 @@
 
     <script>
       var pathname = window.location.pathname;
-      var name = pathname.split("/")[pathname.split("/").length - 1].replace(".html","").replace("%20", " ");
+      var name = cap(pathname.split("/")[pathname.split("/").length - 1].replace(".html","").replace("%20", " ").replace("-", " "));
       var psAPI = window.location.host;
-
+      console.log(name);
       function handle(callback){
         $.getJSON('//' + psAPI + '/getTwitterNameFromName/' + name, function(data){
           callback(data.Twitter.substring(1));
@@ -50,6 +50,7 @@
       handle(function(data){
       // Twitter Bio
       var handle = data;
+      console.log(handle);
       $.getJSON('//' + psAPI + '/twitterBio/' + handle, function(data){
         $("#skills").text(data.description);
       });
@@ -100,6 +101,9 @@
         return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
       }
     });
+    function cap(str){
+      return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+    }
     </script>
 </head>
 
