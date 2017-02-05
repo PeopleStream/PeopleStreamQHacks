@@ -12,7 +12,7 @@ var fs = require('fs');
 var request = require('request');
 var jsdom = require('jsdom');
 
-// app.use(express.static(__dirname + '/startbootstrap-freelancer-gh-pages'));  // was /View
+app.use(express.static(__dirname + '/startbootstrap-freelancer-gh-pages'));  // was /View
 // app.use(express.static(__dirname + '/Script'));
 // app.use(express.static(__dirname + '/node_modules'));
 // app.use(express.static(__dirname + '/src'));
