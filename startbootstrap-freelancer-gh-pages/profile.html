@@ -75,7 +75,7 @@
       });
 
       $("#name").text(name);
-
+      $(".displayhandle").text("@" + handle);
       // Wikipedia infobox
       var banned = ['signature', 'birth date', 'spouse', 'children', 'parents', 'relatives', 'caption'];
       $.getJSON('//' + psAPI + '/wiki/' + name, function(data){
@@ -224,9 +224,9 @@
 					<div class="retweet">
 						<div class="icon-retweet"></div>
 					</div>
-						<h3>@elonmusk</h3> <br/>
+						<h3 class="displayhandle"></h3> <br/>
             <span class="tweetcontent">
-              In addition, I again raised climate. I believe this is doing good, so will remain on council & keep at it. Doing otherwise would be wrong.
+              loading...
             </span>
 						<div class="over-bubble">
 							<div class="icon-mail-reply action"></div>
@@ -247,9 +247,9 @@
 				</div>
 				<div class="bubble-container">
 					<div class="bubble">
-						<h3>@elonmusk</h3><br/>
+						<h3 class="displayhandle"></h3><br/>
             <span class="tweetcontent">
-					    At my request, the agenda for yesterdays White House meeting went from not mentioning the travel ban to having it be first and foremost
+              loading...
             </span>
             <div class="over-bubble">
 							<div class="icon-mail-reply action"></div>
@@ -269,9 +269,9 @@
 				</div>
 				<div class="bubble-container">
 					<div class="bubble">
-					<h3>@elonmusk</h3><br/>
+					<h3 class="displayhandle"></h3><br/>
           <span class="tweetcontent">
-					  There has already been and there will be progress on this matter.
+            loading...
           </span>
 						<div class="over-bubble">
 							<div class="icon-mail-reply action"></div>
@@ -291,9 +291,9 @@
 				</div>
 				<div class="bubble-container">
 					<div class="bubble">
-						<h3>@elonmusk</h3><br/>
+						<h3 class="displayhandle"></h3><br/>
             <span class="tweetcontent">
-					      Many people negatively affected by this policy are strong supporters of the US. They've done right,not wrong & don't deserve to be rejected.
+              loading...
             </span>
             <div class="over-bubble">
 							<div class="icon-mail-reply action"></div>
