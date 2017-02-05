@@ -7,12 +7,12 @@ var articles = [];
 function getNews(track, callback){
   googleNews.stream(track, function(stream) {
     stream.on(GoogleNews.DATA, function(data) {
-      if(articles.push([data]) > 5){ //.title, data.link
-        callback(articles);
+      if(articles.push([data]) > 7){ //.title, data.link
+        return callback(articles);
       }
     });
     stream.on(GoogleNews.ERROR, function(error) {
-      console.log(error);  // callback breaks app.js
+      return console.log(error);  // callback breaks app.js
     });
   });
 }

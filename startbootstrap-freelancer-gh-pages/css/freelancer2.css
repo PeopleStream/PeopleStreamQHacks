@@ -10,6 +10,30 @@ body {
 p {
   font-size: 20px;
 }
+
+.newswrapper{
+  width: 75%;
+  margin:0 auto;
+}
+
+.articles{
+  line-height:1.7em;
+  margin:0 auto;
+  font-size: 1.2em;
+  list-style: none;
+  font-weight: bold;
+}
+
+.articles a{
+  text-decoration: underline;
+  color:white;
+}
+
+.article{
+  padding-top:0.3em;
+  padding-bottom:0.3em;
+}
+
 p.small {
   font-size: 16px;
 }
@@ -61,7 +85,7 @@ hr.star-primary {
   border-color: #2C3E50;
 }
 hr.star-primary:after {
-  background-color: white;
+  background-color: #EDEDED;
   color: #2C3E50;
 }
 .img-centered {
@@ -88,10 +112,32 @@ header .intro-text .name {
   font-weight: 250;
   font-size: 2em;
 }
-header .intro-text .skills {
-  font-size: 3em;
+#skills {
+  font-size: 1.8em;
   font-weight: 300;
+  line-height:2em;
 }
+
+#infobox{
+  width:50%;
+  color: #333;
+  line-height: 2em;
+  border:1px solid #eee;
+  margin:0 auto;
+}
+
+#infobox th{
+  border:1px solid #555;
+  width: 20%;
+  padding:0.5em;
+}
+
+#infobox td{
+  border:1px solid #555;
+  width: 80%;
+  padding:0.3em;
+}
+
 @media (min-width: 768px) {
   header .container {
     padding-top: 120px;
@@ -100,11 +146,10 @@ header .intro-text .skills {
   header .intro-text .name {
     font-size: 3em;
   }
-  header .intro-text .skills {
-    font-size: 3em;
-  }
 }
 .navbar-custom {
+  height:100px;
+  min-height:100px;
   background: #2C3E50;
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
