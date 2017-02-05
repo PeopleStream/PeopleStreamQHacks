@@ -1,4 +1,3 @@
-// change all of this
 var GoogleNews, googleNews, track;
 
 GoogleNews = require('google-news');
