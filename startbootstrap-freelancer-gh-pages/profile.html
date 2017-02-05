@@ -34,13 +34,15 @@
     <script>
       var pathname = window.location.pathname;
       var name = pathname.split("/")[pathname.split("/").length - 1].replace(".html","");
-      var psAPI = location.host;
-      console.log($.fn.jquery);
-      var ting = $.getJSON(psAPI + '/twitterBio/' + name).done(function(data){
-        console.log('hey');
-        $("#skills").text() = $.parseJSON(data);
+      var psAPI = window.location.host;
+
+      // Twitter Bio
+      $.getJSON('//' + psAPI + '/twitterBio/' + name, function(data){
+        $("#skills").text(data.description);
       });
-      console.log(ting)
+
+      // Tweets
+
     </script>
 
 </head>
@@ -90,7 +92,7 @@
                     <div class="intro-text">
                         <span class="name">ELON MUSK</span>
                         <hr class="star-light">
-                        <span id="skills">Tesla, SpaceX, Tunnels
+                        <span id="skills">Tesla, SpaceX, & Tunnels
                         </span>
                     </div>
                 </div>

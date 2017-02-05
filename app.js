@@ -70,7 +70,7 @@ app.get('/twitterBio/:id', function(req,res){
 		if(error){
 			return res.sendStatus(500);
 		}
-		res.json(bio['description']);
+		res.json(bio);
 	})
 });
 
