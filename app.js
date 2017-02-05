@@ -61,7 +61,7 @@ app.get('/twitter/:id', function(req,res){
 		if(error){
 			return res.sendStatus(500);
 		}
-		res.json(tweets[0]['text']);
+		res.json(tweets);
 	})
 });
 
@@ -93,26 +93,17 @@ app.get('/wiki/:id', function(req,res){
 });
 
 app.get('/scrape/:id',function(req,res){
-
-url = 'https://twitter.com/' + String(req.params["id"]);
-
-request(url, function (error, response, html) {
-  if (!error && response.statusCode == 200) {
-
-    jsdom.env(html,
-  ["http://code.jquery.com/jquery.js"],
-  function (err, window) {
-    console.log("contents of a.the-link:", window.$(".ProfileAvatar-image").attr('src'));
-  }
-);
-  }
+	url = 'https://twitter.com/' + String(req.params["id"]);
+	request(url, function (error, response, html) {
+	  if (!error && response.statusCode == 200) {
+	    jsdom.env(html, ["http://code.jquery.com/jquery.js"], function (err, window) {
+				var img = window.$(".ProfileAvatar-image").attr('src');
+	    	res.json(JSON.parse('{"image": "' + img + '"}'));
+	  	});
+	  }
 });
 
 // Finally, we'll just send out a message to the browser reminding you that this app does not have a UI.
-res.send('Check your console!')
-
-
-
 });
 
 

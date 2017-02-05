@@ -11,7 +11,6 @@ function getTweets(username, callback){
   var params = {screen_name: username}; // will be passed from user's query
   client.get('statuses/user_timeline', params, function(error, tweets) {
     if (!error) {
-      console.log("no err");
       callback(null, tweets)
     }
     else{
@@ -27,16 +26,16 @@ function getBio(username, callback){
   var params = {screen_name: username}; // will be passed from user's query
   client.get('users/show', params, function(error, bio) {
     if (!error) {
-      
+
       callback(null, bio)
     }
     else{
       callback(error, null)
-      
+
     }
   });
- 
-  
+
+
 }
 
 module.exports = {
