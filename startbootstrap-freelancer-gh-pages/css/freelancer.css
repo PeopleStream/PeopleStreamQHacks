@@ -537,9 +537,9 @@ overflow: visible;
 }
 .input-group input[type="text"] {
     position:absolute;
-    left:24%;
+    left:23%;
     top:510%;
-    width:60%;
+    width:68%;
     background-color:white;
     color:black;
 }
