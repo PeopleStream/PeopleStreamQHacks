@@ -37,7 +37,7 @@
     "google-news": "^1.4.6",
     "html": "^1.0.0",
     "indico.io": "^0.10.5",
-    "jsdom": "^9.10.0",
+    "jsdom": "^9.12.0",
     "mongodb": "^2.2.22",
     "mongoose": "^4.8.1",
     "mustache": "^2.3.0",
